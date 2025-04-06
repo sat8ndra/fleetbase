@@ -21,7 +21,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => array_filter(['http://localhost:4200', '*', 'http://mechstack.in', 'http://console.mechstack.in,' env('CONSOLE_HOST'), Utils::addWwwToUrl(env('CONSOLE_HOST'))]),
+    'allowed_origins' => array_filter(['http://localhost:4200', '*', 'http://mechstack.in', 'http://console.mechstack.in,', 'ws://socket.mechstack.in', env('CONSOLE_HOST'), Utils::addWwwToUrl(env('CONSOLE_HOST'))]),
 
     'allowed_origins_patterns' => [],
 

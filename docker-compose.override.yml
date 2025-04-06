@@ -88,6 +88,7 @@ services:
       REGISTRY_HOST: https://registry.fleetbase.io
       REGISTRY_PREINSTALLED_EXTENSIONS: 'true'
       OSRM_HOST: https://router.project-osrm.org
+      CONSOLE_HOST: http://console.mechstack.in
     depends_on:
       - database
       - cache

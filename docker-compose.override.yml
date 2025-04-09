@@ -45,7 +45,7 @@ services:
       retries: 3
     environment:
 #     DATABASE_URL: 'mysql://root@database/fleetbase'
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
@@ -76,7 +76,7 @@ services:
     environment:
       ENVIRONMENT: development
 #     DATABASE_URL: 'mysql://root@database/fleetbase'      
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache

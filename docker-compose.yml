@@ -89,7 +89,7 @@ services:
       REGISTRY_PREINSTALLED_EXTENSIONS: 'true'
       OSRM_HOST: https://router.project-osrm.org
     depends_on:
-      - database
+      #      - database
       - cache
       - queue
 

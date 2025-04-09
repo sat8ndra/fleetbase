@@ -7,21 +7,21 @@ services:
       timeout: 5s
       retries: 5
 
-#  database:
-#    image: mysql:8.0-oracle
-#    ports:
-#      - '3306:3306'
-#    volumes:
-#      - './docker/database/:/docker-entrypoint-initdb.d/'
-#      - './docker/database/mysql:/var/lib/mysql'
-#    environment:
-#      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-#      MYSQL_DATABASE: 'fleetbase'
-#    healthcheck:
-#      test: ['CMD', 'mysqladmin', 'ping', '-h', 'mechstack.in']
-#      interval: 10s
-#      timeout: 5s
-#      retries: 5
+  #  database:
+  #    image: mysql:8.0-oracle
+  #    ports:
+  #      - '3306:3306'
+  #    volumes:
+  #      - './docker/database/:/docker-entrypoint-initdb.d/'
+  #      - './docker/database/mysql:/var/lib/mysql'
+  #    environment:
+  #      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  #      MYSQL_DATABASE: 'fleetbase'
+  #    healthcheck:
+  #      test: ['CMD', 'mysqladmin', 'ping', '-h', 'mechstack.in']
+  #      interval: 10s
+  #      timeout: 5s
+  #      retries: 5
 
   socket:
     image: socketcluster/socketcluster:v17.4.0
@@ -44,8 +44,8 @@ services:
       timeout: 10s
       retries: 3
     environment:
-#     DATABASE_URL: 'mysql://root@database/fleetbase'
-      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED'
+      #     DATABASE_URL: 'mysql://root@database/fleetbase'
+      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/fleetbase?ssl-mode=REQUIRED'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
@@ -75,8 +75,8 @@ services:
       - console-build:/fleetbase/console
     environment:
       ENVIRONMENT: development
-#     DATABASE_URL: 'mysql://root@database/fleetbase'      
-      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED'
+      #     DATABASE_URL: 'mysql://root@database/fleetbase'
+      DATABASE_URL: 'mysql://doadmin:AVNS_2gLDe0IPi1PuPlKWTOo@db-mysql-blr1-66786-do-user-15213612-0.k.db.ondigitalocean.com:25060/fleetbase?ssl-mode=REQUIRED'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
@@ -92,7 +92,7 @@ services:
       OSRM_HOST: https://router.project-osrm.org
       CONSOLE_HOST: http://console.mechstack.in
     depends_on:
-#     - database
+      #     - database
       - cache
       - queue
 

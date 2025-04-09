@@ -2,7 +2,7 @@ services:
   cache:
     image: redis:4-alpine
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ['CMD', 'redis-cli', 'ping']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -10,15 +10,15 @@ services:
   database:
     image: mysql:8.0-oracle
     ports:
-      - "3306:3306"
+      - '3306:3306'
     volumes:
-      - "./docker/database/:/docker-entrypoint-initdb.d/"
-      - "./docker/database/mysql:/var/lib/mysql"
+      - './docker/database/:/docker-entrypoint-initdb.d/'
+      - './docker/database/mysql:/var/lib/mysql'
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "fleetbase"
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: 'fleetbase'
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -26,7 +26,7 @@ services:
   socket:
     image: socketcluster/socketcluster:v17.4.0
     ports:
-      - "38000:8000"
+      - '38000:8000'
     environment:
       SOCKETCLUSTER_WORKERS: 10
       SOCKETCLUSTER_BROKERS: 10
@@ -39,12 +39,12 @@ services:
       args:
         ENVIRONMENT: development
     healthcheck:
-      test: ["CMD", "php", "artisan", "queue:status"]
+      test: ['CMD', 'php', 'artisan', 'queue:status']
       interval: 30s
       timeout: 10s
       retries: 3
     environment:
-      DATABASE_URL: "mysql://root@database/fleetbase"
+      DATABASE_URL: 'mysql://root@database/fleetbase'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
@@ -58,7 +58,7 @@ services:
       args:
         ENVIRONMENT: development
     ports:
-      - "4200:4200"
+      - '4200:4200'
     volumes:
       - console-build:/console
 
@@ -74,7 +74,7 @@ services:
       - console-build:/fleetbase/console
     environment:
       ENVIRONMENT: development
-      DATABASE_URL: "mysql://root@database/fleetbase"
+      DATABASE_URL: 'mysql://root@database/fleetbase'
       QUEUE_CONNECTION: redis
       CACHE_DRIVER: redis
       CACHE_PATH: /fleetbase/api/storage/framework/cache
@@ -98,7 +98,7 @@ services:
       context: .
       dockerfile: docker/httpd/Dockerfile
     ports:
-      - "8000:80"
+      - '8000:80'
     depends_on:
       - application
 
